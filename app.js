@@ -18,6 +18,14 @@ function btn() {
         if (dice > 1) {
             roundScore += dice;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
+            if(roundScore>=20)
+            {
+                document.querySelector('#name-' + activePlayer).textContent = 'WINNER!';
+                document.querySelector('.dice').style.display = 'none';
+                document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+                document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+                gamePlaying = false;
+            }
         } else {
 
             nextPlayer();
